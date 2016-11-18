@@ -102,8 +102,21 @@ $ sudo shutdown -r now
 
 # Node.JS
 ```bash
-$ nano /ect/environment
-NODE_END=production
+# Install nvm https://github.com/creationix/nvm
+$ sudo apt-get install build-essential libssl-dev
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+$ source ~/.profile
+
+# Install Node.js using nvm
+$ nvm ls-remote
+$ nvm ls
+$ nvm install 6.9.1
+$ nvm use 6.9.1
+$ node -v
+
+# Set NODE_ENV
+$ sudo nano /ect/environment
+NODE_ENV=production
 ```
 
 # MongoDB
