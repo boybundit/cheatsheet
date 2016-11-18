@@ -8,7 +8,7 @@
 
 [![cc-image]][cc-url]
 
-This work is licensed under a [CC BY-NC-SA 4.0][cc-url] License.
+This work is licensed under a [CC BY-NC-SA 4.0][cc-url] license.
 
 [cc-image]: https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png
 [cc-url]: https://creativecommons.org/licenses/by-nc-sa/4.0/
