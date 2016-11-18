@@ -99,3 +99,23 @@ $ sudo apt-get autoremove
 # Restart
 $ sudo shutdown -r now
 ```
+
+# Node.JS
+```bash
+$ nano /ect/environment
+NODE_END=production
+```
+
+# MongoDB
+```bash
+# Migrate database (export db to file, upload using SFTP, then import)
+$ mongodump -d some_database -c some_collection
+$ mongorestore -d some_other_db -c some_or_other_collection dump/some_collection.bson
+```
+
+# References
+
+- https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-ubuntu-14-04-servers
+- https://www.linode.com/docs/security/securing-your-server
+- https://www.digitalocean.com/community/tutorials/how-to-monitor-system-authentication-logs-on-ubuntu
