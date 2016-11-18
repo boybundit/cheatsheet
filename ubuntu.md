@@ -20,6 +20,7 @@ $ cat $HOME/.ssh/authorized_keys
 
 # Manually add public key (optional)
 $ su - newuser # Switch to newuser
+$ whoami
 $ mkdir .ssh
 $ chmod 700 .ssh
 $ nano .ssh/authorized_keys
