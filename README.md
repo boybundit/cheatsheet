@@ -6,9 +6,9 @@
 
 # License
 
-[![cc-by-image]][cc-by-url]
+[![cc-image]][cc-url]
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by-url].
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-url].
 
-[cc-by-image]: https://i.creativecommons.org/l/by/4.0/80x15.png
-[cc-by-url]: http://creativecommons.org/licenses/by/4.0
+[cc-image]: https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png
+[cc-url]: https://creativecommons.org/licenses/by-nc-sa/4.0/
