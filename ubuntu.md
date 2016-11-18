@@ -1,19 +1,40 @@
 # Ubuntu
 
+## Pre-requisite
+
+- Run `puttykeygen.exe` to generate public/private keys.
+- Upload public key using DigitalOcean console.
+
 ## Initial Server Setup
 
 ```bash
+# Login with root
+$ ssh root@server_ip_address
+
 # Create a new user
-$ adduser demo
+$ adduser newuser
 # Add user into sudo group
-$ gpasswd -a demo sudo
+$ gpasswd -a newuser sudo
+
+# SSH public key in DigitalOcean console is auto-added
+$ cat $HOME/.ssh/authorized_keys
+
+# Manually add public key (optional)
+$ su - newuser # Switch to newuser
+$ mkdir .ssh
+$ chmod 700 .ssh
+$ nano .ssh/authorized_keys
+ssh-rsa public_key comment
+$ chmod 600 .ssh/authorized_keys
+$ exit # Back to root
 
 # Restrict root login
 $ nano /etc/ssh/sshd_config
 PermitRootLogin no
+PasswordAuthentication no
 $ service ssh restart
 
-# Configure a basic firewall
+# Setup uncomplicated firewall
 $ sudo ufw allow ssh
 $ sudo ufw allow 80/tcp   # HTTP
 $ sudo ufw allow 443/tcp  # SSL/TLS
