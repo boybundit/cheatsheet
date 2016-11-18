@@ -64,7 +64,7 @@ $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 $ sudo nano /etc/fail2ban/jail.local
 $ sudo service fail2ban restart
 
-# Power-off to take a snapshot
+# Shutdown to take a snapshot
 $ sudo poweroff
 ```
 
