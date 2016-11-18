@@ -1,4 +1,4 @@
-Initial Server Setup with Ubuntu
+# Initial Server Setup with Ubuntu
 
 Create a new super user
 ```bash
@@ -56,5 +56,25 @@ sudo service fail2ban restart
 ```
 
 https://www.linode.com/docs/security/securing-your-server
+
 https://www.digitalocean.com/community/tutorials/how-to-monitor-system-authentication-logs-on-ubuntu
 
+## Monitoring
+
+```bash
+$ htop
+$ landscape-sysinfo
+
+# Process
+$ ps aux | grep process_name
+
+# Storage
+$ df -h
+
+# Memory
+$ free -m
+
+# Fail2Ban
+$ sudo tail /var/log/fail2ban.log
+$ sudo iptables -S | grep fail2ban
+```
