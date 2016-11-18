@@ -84,3 +84,15 @@ $ free -m
 $ sudo tail /var/log/fail2ban.log
 $ sudo iptables -S | grep fail2ban
 ```
+
+## Update
+
+```bash
+# Update
+$ sudo apt-get update
+$ sudo apt-get dist-upgrade
+$ sudo apt-get autoremove
+
+# Restart
+$ sudo shutdown -r now
+```
