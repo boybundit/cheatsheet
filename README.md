@@ -1,7 +1,7 @@
 # Cheat Sheets
 
 - [git](git.md)
-- [dcoker](docker.md)
+- [docker](docker.md)
   - [dcoker-machine](docker-machine.md)
 
 # License
