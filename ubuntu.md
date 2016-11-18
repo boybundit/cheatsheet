@@ -1,4 +1,6 @@
-# Initial Server Setup with Ubuntu
+# Ubuntu
+
+## Initial Server Setup
 
 Create a new super user
 ```bash
@@ -54,10 +56,6 @@ sudo apt-get install fail2ban
 sudo nano /etc/fail2ban/jail.local
 sudo service fail2ban restart
 ```
-
-https://www.linode.com/docs/security/securing-your-server
-
-https://www.digitalocean.com/community/tutorials/how-to-monitor-system-authentication-logs-on-ubuntu
 
 ## Monitoring
 
