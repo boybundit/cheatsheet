@@ -29,13 +29,13 @@ $ chmod 600 .ssh/authorized_keys
 $ exit # Back to root
 
 # Restrict root login
-$ nano /etc/ssh/sshd_config
+$ sudo nano /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no
-$ service ssh restart
+$ sudo service ssh restart
 
 # Setup uncomplicated firewall
-$ sudo ufw allow ssh
+$ sudo ufw limit ssh      # SSH with rate limit
 $ sudo ufw allow 80/tcp   # HTTP
 $ sudo ufw allow 443/tcp  # SSL/TLS
 $ sudo ufw allow 25/tcp   # SMTP
@@ -44,10 +44,12 @@ $ sudo ufw enable
 
 # Configure timezones
 $ sudo dpkg-reconfigure tzdata
+$ timedatectl
 
 # Configure NTP synchronization
 $ sudo apt-get update
 $ sudo apt-get install ntp
+$ sudo ntpq -p
 
 # Create a swap file
 $ sudo fallocate -l 4G /swapfile
@@ -56,8 +58,9 @@ $ sudo mkswap /swapfile
 $ sudo swapon /swapfile
 $ sudo sh -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
 
-# Install Fail2ban
+# Install Fail2Ban
 $ sudo apt-get install fail2ban
+$ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 $ sudo nano /etc/fail2ban/jail.local
 $ sudo service fail2ban restart
 
