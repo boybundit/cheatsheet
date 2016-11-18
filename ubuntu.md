@@ -3,14 +3,13 @@
 ## Pre-requisite
 
 - Run `puttykeygen.exe` to generate public/private keys.
-- Upload public key using DigitalOcean console.
+- Upload the public key using DigitalOcean console.
+- Create a new server using the public key.
+- Connect to the server with SSH as `root` using the private key.
 
 ## Initial Server Setup
 
 ```bash
-# Login with root
-$ ssh root@server_ip_address
-
 # Create a new user
 $ adduser newuser
 # Add user into sudo group
