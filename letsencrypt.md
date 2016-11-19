@@ -13,16 +13,16 @@ $ sudo service haproxy stop
 $ netstat -na | grep ':80.*LISTEN'
 ```
 
-> For production, remove `--staging` flag
+> For testing, add `--staging` flag
 
 ```bash
 $ sudo apt-get install certbot 
-$ certbot certonly --staging --standalone -d example.com -d www.example.com
+$ certbot certonly --standalone -d example.com -d www.example.com
 $ ls /etc/letsencrypt/live/example.com/
 cert.pem  chain.pem  fullchain.pem  privkey.pem
 
 # Automating renewal
-$ certbot renew --staging --dry-run 
+$ certbot renew --dry-run 
 ```
 
 ## HAProxy ACME domain validation plugin
@@ -35,12 +35,9 @@ $ sudo cat /etc/letsencrypt/live/www.example.com/privkey.pem \
   /etc/letsencrypt/live/www.example.com/fullchain.pem \
   | sudo tee /etc/letsencrypt/live/www.example.com/haproxy.pem >/dev/null
 ```
-```cfg
-# /etc/haproxy/haproxy.cfg
-frontend https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.example.com/haproxy.pem
-```
 ```bash
+# Check version
+$ haproxy -vv
 # Install plugin
 $ wget https://github.com/janeczku/haproxy-acme-validation-plugin/archive/0.1.1.tar.gz
 $ tar -xf 0.1.1.tar.gz
@@ -60,9 +57,13 @@ frontend https
 # Soft restart HAProxy
 $ sudo service haproxy reload
 ```
+
+## Automatic renewal
+
 ```bash
-# Automatic renewal (weekly)
+# Update parameters in renewal script
 $ sudo nano /etc/haproxy/haproxy-acme-validation-plugin-0.1.1/cert-renewal-haproxy.sh
+# Setup weekly cronjob
 $ sudo crontab -e
 ```
 ```
