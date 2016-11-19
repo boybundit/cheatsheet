@@ -38,6 +38,21 @@ $ docker search sinatra
 ```
 
 ## Dockerfile
+```bash
+$ mkdir mydockerbuild
+$ cd mydockerbuild
+$ touch Dockerfile
+```
+```Dockerfile
+FROM docker/whalesay:latest
+RUN apt-get -y update && apt-get install -y fortunes
+CMD /usr/games/fortune -a | cowsay
+```
+```bash
+$ docker build -t docker-whale .
+$ docker images 
+$ docker run docker-whale
+```
 
 ```bash
 $ touch Dockerfile
