@@ -2,12 +2,10 @@
 
 - [Git](git.md)
   - [Git Hooks](git-hook.md)
-
 - [Ubuntu](ubuntu.md)
 - [NGinx](nginx.md)
 - [HAProxy](haproxy.md)
 - [Let's Encrypt](letsencrypt.md)
-
 - [Docker](docker.md)
   - [Dcoker Machine](docker-machine.md)
 
