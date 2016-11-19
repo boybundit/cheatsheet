@@ -23,10 +23,16 @@ $ su - newuser # Switch to newuser
 $ whoami
 $ mkdir .ssh
 $ chmod 700 .ssh
+
+# Option 1: Copy keys from root
 $ sudo cp /root/.ssh/authorized_keys $HOME/.ssh/authorized_keys
+$ sudo chown newuser:newuser $HOME/.ssh/authorized_keys
+
+# Option 2: Create new keys file
 $ nano .ssh/authorized_keys
 ssh-rsa public_key comment
 $ chmod 600 .ssh/authorized_keys
+
 $ exit # Back to root
 
 # Restrict root login
@@ -42,6 +48,7 @@ $ sudo ufw allow 443/tcp  # SSL/TLS
 $ sudo ufw allow 25/tcp   # SMTP
 $ sudo ufw show added
 $ sudo ufw enable
+$ sudo iptables -S | grep ufw
 
 # Configure timezones
 $ sudo dpkg-reconfigure tzdata
