@@ -21,31 +21,44 @@ $ sudo nano /etc/haproxy/haproxy.cfg
 https://github.com/janeczku/haproxy-acme-validation-plugin
 
 ```cfg
-  global
+# /etc/haproxy/haproxy.cfg
+global
     lua-load /etc/haproxy/haproxy-acme-validation-plugin-0.1.1/acme-http01-webroot.lua
     maxconn 2048
     tune.ssl.default-dh-param 2048    
-  defaults
+defaults
     option forwardfor
     option http-server-close
-  frontend www
-    bind *:443 ssl crt /etc/letsencrypt/live/bundit.net/haproxy.pem
+frontend www-http
     bind *:80
+    # Handle Let's Encrypt
     acl url_acme_http01 path_beg /.well-known/acme-challenge/
     http-request use-service lua.acme-http01 if METH_GET url_acme_http01
+    # Redirect to https
+    redirect scheme https code 301 if !{ ssl_fc }
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/live/example.com/haproxy.pem
+    acl url_stats path_beg /haproxy
+    use_backend haproxy-stats if url_stats
     default_backend web-backend
-  backend web-backend
+backend web-backend
     balance roundrobin
     server web-nodjs-1 127.0.0.1:8080 check
+    server web-nodjs-2 127.0.0.1:8080 check
+backend haproxy-stats
     stats enable
     stats hide-version
-    stats uri    /admin?stats
-    stats realm  Haproxy\ Statistics
+    stats uri /haproxy
+    stats realm Haproxy\ Statistics
+    stats auth user:password
 ```
 
 ```bash
 # Check valid syntax 
 $ sudo haproxy -f /etc/haproxy/haproxy.cfg -c
+
+# Soft restart service
+$ sudo service haproxy reload
 
 # Restart service
 $ sudo service haproxy restart
