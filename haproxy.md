@@ -1,28 +1,23 @@
-# HAproxy
+# HAProxy
+
+See [Let's Encrypt](letsencrypt.md) for https config.
 
 ```bash
 # Find private ip
 $ curl 169.254.169.254/metadata/v1/interfaces/private/0/ipv4/address && echo
-
-# Find anchor ip (private ip of the floating ip)
+# Find anchor ip
 $ curl 169.254.169.254/metadata/v1/interfaces/public/0/anchor_ipv4/address && echo
 ```
 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install haproxy
-
-# Make it started automatically on reboot
-$ sudo nano /etc/default/haproxy
-  ENABLED=1
-
-$ sudo nano /etc/haproxy/haproxy.cfg
 ```
-https://github.com/janeczku/haproxy-acme-validation-plugin
 
 ```cfg
 # /etc/haproxy/haproxy.cfg
 global
+    # Handle Let's Encrypt
     lua-load /etc/haproxy/haproxy-acme-validation-plugin-0.1.1/acme-http01-webroot.lua
     maxconn 2048
     tune.ssl.default-dh-param 2048    
