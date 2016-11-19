@@ -13,6 +13,8 @@ $ sudo service haproxy stop
 $ netstat -na | grep ':80.*LISTEN'
 ```
 
+## Get certificate
+
 > For testing, add `--staging` flag
 
 ```bash
