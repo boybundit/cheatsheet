@@ -23,6 +23,7 @@ $ su - newuser # Switch to newuser
 $ whoami
 $ mkdir .ssh
 $ chmod 700 .ssh
+$ sudo cp /root/.ssh/authorized_keys $HOME/.ssh/authorized_keys
 $ nano .ssh/authorized_keys
 ssh-rsa public_key comment
 $ chmod 600 .ssh/authorized_keys
