@@ -48,6 +48,7 @@ $ sudo ufw allow 443/tcp  # SSL/TLS
 $ sudo ufw allow 25/tcp   # SMTP
 $ sudo ufw show added
 $ sudo ufw enable
+$ sudo ufw status
 $ sudo iptables -S | grep ufw
 
 # Configure timezones
