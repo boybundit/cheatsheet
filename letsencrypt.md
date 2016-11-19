@@ -21,8 +21,7 @@ $ certbot certonly --staging --standalone -d example.com -d www.example.com
 $ ls /etc/letsencrypt/live/example.com/
 cert.pem  chain.pem  fullchain.pem  privkey.pem
 
-
-Automating renewal
+# Automating renewal
 $ certbot renew --staging --dry-run 
 ```
 
