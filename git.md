@@ -28,7 +28,7 @@ git branch -d feature-x
 Commit
 ```bash
 git status
-git add .
+git add . // Undo by git reset (no dot)
 gid commit -m "commit message"
 ```
 
