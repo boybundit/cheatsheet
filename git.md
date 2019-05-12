@@ -62,3 +62,10 @@ git push -f origin master
 ```
 
 [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+
+Check file changes
+```bash
+git log -p [--follow] [-1] <path>
+git log -p -1 <commit>
+gitk <file>
+```
