@@ -9,6 +9,8 @@
 - [Docker](docker.md)
   - [Dcoker Machine](docker-machine.md)
 
+- [Droplet](droplet.md)
+
 # License
 
 [![cc-image]][cc-url]
