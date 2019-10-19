@@ -8,8 +8,7 @@
 - [Let's Encrypt](letsencrypt.md)
 - [Docker](docker.md)
   - [Dcoker Machine](docker-machine.md)
-
-- [Droplet](droplet.md)
+- [Droplets](droplets.md)
 
 # License
 
